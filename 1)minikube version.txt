@@ -14,3 +14,6 @@ minikube kubectl -- set image deployment/web-app nginx=nginx:1.1
 minikube kubectl -- describe deployment web-app
 minikube kubectl -- rollout undo deployment/web-app
 minikube kubectl -- describe deployment web-app
+docker pull jasonrivers/nagios:latest
+
+docker run -d --name nagios -p 8888:80 jasonrivers/nagios:latest
