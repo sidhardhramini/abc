@@ -1,0 +1,16 @@
+minikube version
+minikube start --driver=docker
+minikube status
+minikube kubectl -- get nodes
+minikube kubectl -- create deployment web-app --image=nginx:latest --replicas=2
+minikube kubectl -- get pods
+minikube kubectl -- expose deployment web-app --type=NodePort --port=80 --target-port=80 --name=web-service
+minikube service web-service
+minikube kubectl -- scale deployment web-app --replicas=5
+minikube kubectl -- get deployments
+minikube kubectl -- delete pod web-app-5fd594bd85-htf5q
+minikube kubectl -- get pods
+minikube kubectl -- set image deployment/web-app nginx=nginx:1.1
+minikube kubectl -- describe deployment web-app
+minikube kubectl -- rollout undo deployment/web-app
+minikube kubectl -- describe deployment web-app
